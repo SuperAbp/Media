@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>SuperAbp.Media</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.EntityFrameworkCore" Version="5.2.0" />
+    <ProjectReference Include="..\SuperAbp.Media.Domain\SuperAbp.Media.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,7 @@
+{
+  "modules": {
+    "SuperAbp.Media": {
+      "path": "SuperAbp.Media.abpmdl.json"
+    }
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "folders": {
+    "items": {
+      "src": {},
+      "test": {},
+      "host": {}
+    }
+  },
+  "packages": {
+    "SuperAbp.Media.Domain.Shared": {
+      "path": "src/SuperAbp.Media.Domain.Shared/SuperAbp.Media.Domain.Shared.abppkg.json",
+      "folder": "src"
+    },
+    "SuperAbp.Media.Domain": {
+      "path": "src/SuperAbp.Media.Domain/SuperAbp.Media.Domain.abppkg.json",
+      "folder": "src"
+    },
+    "SuperAbp.Media.Application.Contracts": {
+      "path": "src/SuperAbp.Media.Application.Contracts/SuperAbp.Media.Application.Contracts.abppkg.json",
+      "folder": "src"
+    },
+    "SuperAbp.Media.Application": {
+      "path": "src/SuperAbp.Media.Application/SuperAbp.Media.Application.abppkg.json",
+      "folder": "src"
+    },
+    "SuperAbp.Media.EntityFrameworkCore": {
+      "path": "src/SuperAbp.Media.EntityFrameworkCore/SuperAbp.Media.EntityFrameworkCore.abppkg.json",
+      "folder": "src"
+    },
+    "SuperAbp.Media.MongoDB": {
+      "path": "src/SuperAbp.Media.MongoDB/SuperAbp.Media.MongoDB.abppkg.json",
+      "folder": "src"
+    },
+    "SuperAbp.Media.HttpApi": {
+      "path": "src/SuperAbp.Media.HttpApi/SuperAbp.Media.HttpApi.abppkg.json",
+      "folder": "src"
+    },
+    "SuperAbp.Media.HttpApi.Client": {
+      "path": "src/SuperAbp.Media.HttpApi.Client/SuperAbp.Media.HttpApi.Client.abppkg.json",
+      "folder": "src"
+    },
+    "SuperAbp.Media.TestBase": {
+      "path": "test/SuperAbp.Media.TestBase/SuperAbp.Media.TestBase.abppkg.json",
+      "folder": "test"
+    },
+    "SuperAbp.Media.EntityFrameworkCore.Tests": {
+      "path": "test/SuperAbp.Media.EntityFrameworkCore.Tests/SuperAbp.Media.EntityFrameworkCore.Tests.abppkg.json",
+      "folder": "test"
+    },
+    "SuperAbp.Media.MongoDB.Tests": {
+      "path": "test/SuperAbp.Media.MongoDB.Tests/SuperAbp.Media.MongoDB.Tests.abppkg.json",
+      "folder": "test"
+    },
+    "SuperAbp.Media.Domain.Tests": {
+      "path": "test/SuperAbp.Media.Domain.Tests/SuperAbp.Media.Domain.Tests.abppkg.json",
+      "folder": "test"
+    },
+    "SuperAbp.Media.Application.Tests": {
+      "path": "test/SuperAbp.Media.Application.Tests/SuperAbp.Media.Application.Tests.abppkg.json",
+      "folder": "test"
+    },
+    "SuperAbp.Media.HttpApi.Host": {
+      "path": "host/SuperAbp.Media.HttpApi.Host/SuperAbp.Media.HttpApi.Host.abppkg.json",
+      "folder": "host"
+    },
+    "SuperAbp.Media.HttpApi.Client.ConsoleTestApp": {
+      "path": "test/SuperAbp.Media.HttpApi.Client.ConsoleTestApp/SuperAbp.Media.HttpApi.Client.ConsoleTestApp.abppkg.json",
+      "folder": "test"
+    },
+    "SuperAbp.Media.IdentityServer": {
+      "path": "host/SuperAbp.Media.IdentityServer/SuperAbp.Media.IdentityServer.abppkg.json",
+      "folder": "host"
+    },
+    "SuperAbp.Media.Host.Shared": {
+      "path": "host/SuperAbp.Media.Host.Shared/SuperAbp.Media.Host.Shared.abppkg.json",
+      "folder": "host"
+    }
+  }
+}
