@@ -11,13 +11,13 @@ namespace SuperAbp.Media;
 [DependsOn(
     typeof(AbpValidationModule)
 )]
-public class MediaDomainSharedModule : AbpModule
+public class SuperAbpMediaDomainSharedModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
         Configure<AbpVirtualFileSystemOptions>(options =>
         {
-            options.FileSets.AddEmbedded<MediaDomainSharedModule>();
+            options.FileSets.AddEmbedded<SuperAbpMediaDomainSharedModule>();
         });
 
         Configure<AbpLocalizationOptions>(options =>

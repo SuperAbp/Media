@@ -6,19 +6,19 @@ using Volo.Abp.Application;
 namespace SuperAbp.Media;
 
 [DependsOn(
-    typeof(MediaDomainModule),
-    typeof(MediaApplicationContractsModule),
+    typeof(SuperAbpMediaDomainModule),
+    typeof(SuperAbpMediaApplicationContractsModule),
     typeof(AbpDddApplicationModule),
     typeof(AbpAutoMapperModule)
     )]
-public class MediaApplicationModule : AbpModule
+public class SuperAbpMediaApplicationModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
-        context.Services.AddAutoMapperObjectMapper<MediaApplicationModule>();
+        context.Services.AddAutoMapperObjectMapper<SuperAbpMediaApplicationModule>();
         Configure<AbpAutoMapperOptions>(options =>
         {
-            options.AddMaps<MediaApplicationModule>(validate: true);
+            options.AddMaps<SuperAbpMediaApplicationModule>(validate: true);
         });
     }
 }

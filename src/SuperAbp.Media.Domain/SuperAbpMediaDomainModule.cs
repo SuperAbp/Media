@@ -5,9 +5,8 @@ namespace SuperAbp.Media;
 
 [DependsOn(
     typeof(AbpDddDomainModule),
-    typeof(MediaDomainSharedModule)
+    typeof(SuperAbpMediaDomainSharedModule)
 )]
-public class MediaDomainModule : AbpModule
+public class SuperAbpMediaDomainModule : AbpModule
 {
-
 }

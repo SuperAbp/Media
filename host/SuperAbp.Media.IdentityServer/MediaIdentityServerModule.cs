@@ -81,7 +81,7 @@ namespace SuperAbp.Media;
     typeof(AbpTenantManagementApplicationModule),
     typeof(AbpTenantManagementHttpApiModule),
     typeof(AbpAspNetCoreAuthenticationJwtBearerModule),
-    typeof(MediaApplicationContractsModule),
+    typeof(SuperAbpMediaApplicationContractsModule),
     typeof(AbpAspNetCoreSerilogModule),
     typeof(AbpSwashbuckleModule)
     )]

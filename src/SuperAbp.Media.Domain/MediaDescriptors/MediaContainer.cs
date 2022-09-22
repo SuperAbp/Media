@@ -2,7 +2,7 @@
 
 namespace SuperAbp.Media.MediaDescriptors
 {
-    [BlobContainerName("snow-media")]
+    [BlobContainerName("super-abp-media")]
     public class MediaContainer
     {
         

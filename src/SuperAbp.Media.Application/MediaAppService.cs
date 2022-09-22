@@ -8,6 +8,6 @@ public abstract class MediaAppService : ApplicationService
     protected MediaAppService()
     {
         LocalizationResource = typeof(MediaResource);
-        ObjectMapperContext = typeof(MediaApplicationModule);
+        ObjectMapperContext = typeof(SuperAbpMediaApplicationModule);
     }
 }

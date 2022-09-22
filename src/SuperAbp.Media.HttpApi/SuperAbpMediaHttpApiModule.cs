@@ -4,19 +4,20 @@ using Volo.Abp.AspNetCore.Mvc;
 using Volo.Abp.Localization;
 using Volo.Abp.Modularity;
 using Microsoft.Extensions.DependencyInjection;
+using SuperAbp.Media.MediaDescriptors;
 
 namespace SuperAbp.Media;
 
 [DependsOn(
-    typeof(MediaApplicationContractsModule),
+    typeof(SuperAbpMediaApplicationContractsModule),
     typeof(AbpAspNetCoreMvcModule))]
-public class MediaHttpApiModule : AbpModule
+public class SuperAbpMediaHttpApiModule : AbpModule
 {
     public override void PreConfigureServices(ServiceConfigurationContext context)
     {
         PreConfigure<IMvcBuilder>(mvcBuilder =>
         {
-            mvcBuilder.AddApplicationPartIfNotExists(typeof(MediaHttpApiModule).Assembly);
+            mvcBuilder.AddApplicationPartIfNotExists(typeof(SuperAbpMediaHttpApiModule).Assembly);
         });
     }
 
@@ -27,6 +28,10 @@ public class MediaHttpApiModule : AbpModule
             options.Resources
                 .Get<MediaResource>()
                 .AddBaseTypes(typeof(AbpUiResource));
+        });
+        Configure<AbpAspNetCoreMvcOptions>(options =>
+        {
+            options.ConventionalControllers.FormBodyBindingIgnoredTypes.Add(typeof(CreateMediaInputWithStream));
         });
     }
 }

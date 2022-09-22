@@ -5,18 +5,18 @@ using Volo.Abp.Modularity;
 namespace SuperAbp.Media.EntityFrameworkCore;
 
 [DependsOn(
-    typeof(MediaDomainModule),
+    typeof(SuperAbpMediaDomainModule),
     typeof(AbpEntityFrameworkCoreModule)
 )]
-public class MediaEntityFrameworkCoreModule : AbpModule
+public class SuperAbpMediaEntityFrameworkCoreModule : AbpModule
 {
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
         context.Services.AddAbpDbContext<MediaDbContext>(options =>
         {
-                /* Add custom repositories here. Example:
-                 * options.AddRepository<Question, EfCoreQuestionRepository>();
-                 */
+            /* Add custom repositories here. Example:
+             * options.AddRepository<Question, EfCoreQuestionRepository>();
+             */
         });
     }
 }

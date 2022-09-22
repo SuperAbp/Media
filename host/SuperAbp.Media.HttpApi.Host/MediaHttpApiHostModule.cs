@@ -37,9 +37,9 @@ using Volo.Abp.VirtualFileSystem;
 namespace SuperAbp.Media;
 
 [DependsOn(
-    typeof(MediaApplicationModule),
-    typeof(MediaEntityFrameworkCoreModule),
-    typeof(MediaHttpApiModule),
+    typeof(SuperAbpMediaApplicationModule),
+    typeof(SuperAbpMediaEntityFrameworkCoreModule),
+    typeof(SuperAbpMediaHttpApiModule),
     typeof(AbpAspNetCoreMvcUiMultiTenancyModule),
     typeof(AbpAutofacModule),
     typeof(AbpCachingStackExchangeRedisModule),
@@ -73,10 +73,10 @@ public class MediaHttpApiHostModule : AbpModule
         {
             Configure<AbpVirtualFileSystemOptions>(options =>
             {
-                options.FileSets.ReplaceEmbeddedByPhysical<MediaDomainSharedModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}src{0}SuperAbp.Media.Domain.Shared", Path.DirectorySeparatorChar)));
-                options.FileSets.ReplaceEmbeddedByPhysical<MediaDomainModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}src{0}SuperAbp.Media.Domain", Path.DirectorySeparatorChar)));
-                options.FileSets.ReplaceEmbeddedByPhysical<MediaApplicationContractsModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}src{0}SuperAbp.Media.Application.Contracts", Path.DirectorySeparatorChar)));
-                options.FileSets.ReplaceEmbeddedByPhysical<MediaApplicationModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}src{0}SuperAbp.Media.Application", Path.DirectorySeparatorChar)));
+                options.FileSets.ReplaceEmbeddedByPhysical<SuperAbpMediaDomainSharedModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}src{0}SuperAbp.Media.Domain.Shared", Path.DirectorySeparatorChar)));
+                options.FileSets.ReplaceEmbeddedByPhysical<SuperAbpMediaDomainModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}src{0}SuperAbp.Media.Domain", Path.DirectorySeparatorChar)));
+                options.FileSets.ReplaceEmbeddedByPhysical<SuperAbpMediaApplicationContractsModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}src{0}SuperAbp.Media.Application.Contracts", Path.DirectorySeparatorChar)));
+                options.FileSets.ReplaceEmbeddedByPhysical<SuperAbpMediaApplicationModule>(Path.Combine(hostingEnvironment.ContentRootPath, string.Format("..{0}..{0}src{0}SuperAbp.Media.Application", Path.DirectorySeparatorChar)));
             });
         }
 

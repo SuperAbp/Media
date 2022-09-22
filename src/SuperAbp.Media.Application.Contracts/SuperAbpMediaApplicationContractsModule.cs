@@ -5,11 +5,10 @@ using Volo.Abp.Authorization;
 namespace SuperAbp.Media;
 
 [DependsOn(
-    typeof(MediaDomainSharedModule),
+    typeof(SuperAbpMediaDomainSharedModule),
     typeof(AbpDddApplicationContractsModule),
     typeof(AbpAuthorizationModule)
     )]
-public class MediaApplicationContractsModule : AbpModule
+public class SuperAbpMediaApplicationContractsModule : AbpModule
 {
-
 }
