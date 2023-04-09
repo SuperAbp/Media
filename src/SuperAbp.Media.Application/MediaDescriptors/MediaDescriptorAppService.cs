@@ -11,12 +11,15 @@ namespace SuperAbp.Media.MediaDescriptors
     {
         private readonly IBlobContainer<MediaContainer> _blobContainer;
         private readonly IMediaDescriptorRepository _mediaDescriptorRepository;
+        private readonly MediaDescriptorManager _mediaDescriptorManager;
 
         public MediaDescriptorAppService(IMediaDescriptorRepository mediaDescriptorRepository,
-            IBlobContainer<MediaContainer> blobContainer)
+            IBlobContainer<MediaContainer> blobContainer,
+            MediaDescriptorManager mediaDescriptorManager)
         {
             _mediaDescriptorRepository = mediaDescriptorRepository;
             _blobContainer = blobContainer;
+            _mediaDescriptorManager = mediaDescriptorManager;
         }
 
         public virtual async Task<RemoteStreamContent> DownloadAsync(Guid id)
@@ -45,8 +48,7 @@ namespace SuperAbp.Media.MediaDescriptors
 
         public virtual async Task DeleteAsync(Guid id)
         {
-            await _blobContainer.DeleteAsync(id.ToString());
-            await _mediaDescriptorRepository.DeleteAsync(id);
+            await _mediaDescriptorManager.DeleteAsync(id);
         }
     }
 }
