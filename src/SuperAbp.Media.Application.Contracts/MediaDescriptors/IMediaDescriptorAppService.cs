@@ -5,7 +5,7 @@ using Volo.Abp.Content;
 
 namespace SuperAbp.Media.MediaDescriptors
 {
-    public interface IMediaDescriptorAppService:IApplicationService
+    public interface IMediaDescriptorAppService : IApplicationService
     {
         Task<RemoteStreamContent> DownloadAsync(Guid id);
 

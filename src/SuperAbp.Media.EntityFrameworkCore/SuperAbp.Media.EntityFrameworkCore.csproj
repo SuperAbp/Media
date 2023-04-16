@@ -5,6 +5,8 @@
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
     <RootNamespace>SuperAbp.Media</RootNamespace>
+	  <PackageProjectUrl>https://superabp.com/</PackageProjectUrl>
+	  <RepositoryUrl>https://github.com/SuperAbp/Media</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
