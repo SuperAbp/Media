@@ -1,7 +1,8 @@
-﻿using System;
+﻿using Lzez.Tendering.Util.Encryption.Md5;
+using System;
 using System.IO;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
-using Snow.Tools.Security.Cryptography;
 using Volo.Abp.BlobStoring;
 using Volo.Abp.Content;
 
@@ -39,7 +40,7 @@ namespace SuperAbp.Media.MediaDescriptors
                     inputStream.File.ContentLength ?? 0);
 
                 var buffer = await stream.GetAllBytesAsync();
-                media.SetHash(MD5Encryption.MD5Encrypt(buffer));
+                media.SetHash(HashAlgorithmHelper.ComputeHash<MD5>(Convert.ToString(buffer)));
                 await _blobContainer.SaveAsync(media.Id + Path.GetExtension(inputStream.Name), stream);
                 await _mediaDescriptorRepository.InsertAsync(media);
                 return ObjectMapper.Map<MediaDescriptor, MediaDescriptorDto>(media);
