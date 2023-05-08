@@ -1,0 +1,23 @@
+name: push tag and pack nuget
+
+on:
+  push:
+    tags:
+    - '*'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+  
+    - name: Package with dotnet
+      run: dotnet pack -c Release  --output nupkgs /p:Version=${{ github.ref_name }}
+      working-directory: aspnet-core
+      
+    - name: Push generated package to GitHub registry
+      run: |
+        nuget push *.nupkg -Source https://api.nuget.org/v3/index.json -SkipDuplicate -ApiKey ${{ secrets.NUGETKEY }} -NoSymbols 
+      working-directory: aspnet-core/nupkgs
