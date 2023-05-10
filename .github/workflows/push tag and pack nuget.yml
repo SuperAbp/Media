@@ -11,13 +11,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
+    - uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '7.0.x'
   
+    - name: Build with dotnet
+      run: dotnet build -c Release
+      working-directory: aspnet-core
+
     - name: Package with dotnet
-      run: dotnet pack -c Release  --output nupkgs /p:Version=${{ github.ref_name }}
+      run: dotnet pack -c Release  --output nupkgs /p:Version=${{ github.ref_name }}           
       working-directory: aspnet-core
       
-    - name: Push generated package to GitHub registry
+    - name: Push generated package to Nuget
       run: |
-        nuget push *.nupkg -Source https://api.nuget.org/v3/index.json -SkipDuplicate -ApiKey ${{ secrets.NUGETKEY }} -NoSymbols 
+          dotnet nuget push "*.nupkg" -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGETKEY }} --skip-duplicate -n 
       working-directory: aspnet-core/nupkgs
