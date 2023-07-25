@@ -3,14 +3,22 @@
   <Import Project="..\..\common.props" />
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
     <RootNamespace>SuperAbp.Media</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\SuperAbp.Media.Application\SuperAbp.Media.Application.csproj" />
     <ProjectReference Include="..\SuperAbp.Media.Domain.Tests\SuperAbp.Media.Domain.Tests.csproj" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="MediaDescriptors\" />
   </ItemGroup>
 
 </Project>

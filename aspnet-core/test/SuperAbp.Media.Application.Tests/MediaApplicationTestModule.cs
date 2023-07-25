@@ -3,10 +3,9 @@
 namespace SuperAbp.Media;
 
 [DependsOn(
-    typeof(MediaApplicationModule),
+    typeof(SuperAbpMediaApplicationModule),
     typeof(MediaDomainTestModule)
     )]
 public class MediaApplicationTestModule : AbpModule
 {
-
 }

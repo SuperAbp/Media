@@ -1,8 +1,7 @@
-﻿namespace SuperAbp.Media.EntityFrameworkCore;
+﻿using Volo.Abp;
 
-/* This class can be used as a base class for EF Core integration tests,
- * while SampleRepository_Tests uses a different approach.
- */
+namespace SuperAbp.Media.EntityFrameworkCore;
+
 public abstract class MediaEntityFrameworkCoreTestBase : MediaTestBase<MediaEntityFrameworkCoreTestModule>
 {
 

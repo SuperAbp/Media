@@ -3,6 +3,7 @@ using System;
 using System.IO;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
+using SuperAbp.Media.Encryption.Md5;
 using Volo.Abp.BlobStoring;
 using Volo.Abp.Content;
 

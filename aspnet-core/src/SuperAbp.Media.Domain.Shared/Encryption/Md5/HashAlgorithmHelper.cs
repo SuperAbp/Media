@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Text;
+using Lzez.Tendering.Util.Encryption.Md5;
 
-namespace Lzez.Tendering.Util.Encryption.Md5
+namespace SuperAbp.Media.Encryption.Md5
 {
     public static class HashAlgorithmHelper
     {

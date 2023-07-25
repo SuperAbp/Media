@@ -26,12 +26,7 @@ namespace SuperAbp.Media.MediaDescriptors
 
         public void SetHash(string hash)
         {
-            if (hash == null)
-            {
-                throw new ArgumentNullException(hash);
-            }
-
-            this.Hash = hash;
+            this.Hash = hash ?? throw new ArgumentNullException(nameof(hash));
         }
     }
 }
