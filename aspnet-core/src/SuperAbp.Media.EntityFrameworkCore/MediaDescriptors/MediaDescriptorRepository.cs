@@ -15,7 +15,7 @@ namespace SuperAbp.Media.MediaDescriptors
         {
         }
 
-        public async Task<List<MediaDescriptor>> GetByIdsAsync(IEnumerable<Guid> ids)
+        public virtual async Task<List<MediaDescriptor>> GetByIdsAsync(IEnumerable<Guid> ids)
         {
             var dbContext = await GetDbContextAsync();
             return await dbContext.Set<MediaDescriptor>()
@@ -23,7 +23,7 @@ namespace SuperAbp.Media.MediaDescriptors
                 .ToListAsync();
         }
 
-        public async Task DeleteByIdsAsync(IEnumerable<Guid> ids)
+        public virtual async Task DeleteByIdsAsync(IEnumerable<Guid> ids)
         {
             await DeleteAsync(m => ids.Contains(m.Id));
         }
