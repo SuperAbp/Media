@@ -1,7 +1,7 @@
 ﻿using SuperAbp.Media.Localization;
 using Volo.Abp.AspNetCore.Mvc;
 
-namespace SuperAbp.Media.Controllers;
+namespace SuperAbp.Media;
 
 public abstract class MediaController : AbpControllerBase
 {

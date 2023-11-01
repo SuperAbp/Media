@@ -11,23 +11,23 @@ namespace SuperAbp.Media.MediaDescriptors
 {
     public class MediaDescriptorAppService : MediaAppService, IMediaDescriptorAppService
     {
-        private readonly IBlobContainer<MediaContainer> _blobContainer;
-        private readonly IMediaDescriptorRepository _mediaDescriptorRepository;
-        private readonly MediaDescriptorManager _mediaDescriptorManager;
+        protected IBlobContainer<MediaContainer> BlobContainer { get; }
+        protected IMediaDescriptorRepository MediaDescriptorRepository { get; }
+        protected MediaDescriptorManager MediaDescriptorManager { get; }
 
         public MediaDescriptorAppService(IMediaDescriptorRepository mediaDescriptorRepository,
             IBlobContainer<MediaContainer> blobContainer,
             MediaDescriptorManager mediaDescriptorManager)
         {
-            _mediaDescriptorRepository = mediaDescriptorRepository;
-            _blobContainer = blobContainer;
-            _mediaDescriptorManager = mediaDescriptorManager;
+            MediaDescriptorRepository = mediaDescriptorRepository;
+            BlobContainer = blobContainer;
+            MediaDescriptorManager = mediaDescriptorManager;
         }
 
         public virtual async Task<RemoteStreamContent> DownloadAsync(Guid id)
         {
-            var entity = await _mediaDescriptorRepository.GetAsync(id);
-            var stream = await _blobContainer.GetAsync(id + Path.GetExtension(entity.Name));
+            var entity = await MediaDescriptorRepository.GetAsync(id);
+            var stream = await BlobContainer.GetAsync(id + Path.GetExtension(entity.Name));
 
             return new RemoteStreamContent(stream, entity.Name, entity.MimeType);
         }
@@ -42,15 +42,15 @@ namespace SuperAbp.Media.MediaDescriptors
 
                 var buffer = await stream.GetAllBytesAsync();
                 media.SetHash(HashAlgorithmHelper.ComputeHash<MD5>(Convert.ToString(buffer)));
-                await _blobContainer.SaveAsync(media.Id + Path.GetExtension(inputStream.Name), stream);
-                await _mediaDescriptorRepository.InsertAsync(media);
+                await BlobContainer.SaveAsync(media.Id + Path.GetExtension(inputStream.Name), stream);
+                await MediaDescriptorRepository.InsertAsync(media);
                 return ObjectMapper.Map<MediaDescriptor, MediaDescriptorDto>(media);
             }
         }
 
         public virtual async Task DeleteAsync(Guid id)
         {
-            await _mediaDescriptorManager.DeleteAsync(id);
+            await MediaDescriptorManager.DeleteAsync(id);
         }
     }
 }

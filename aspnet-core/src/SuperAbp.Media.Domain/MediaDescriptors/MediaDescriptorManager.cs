@@ -10,14 +10,14 @@ namespace SuperAbp.Media.MediaDescriptors
 {
     public class MediaDescriptorManager : DomainService
     {
-        private readonly IBlobContainer<MediaContainer> _blobContainer;
-        private readonly IMediaDescriptorRepository _mediaDescriptorRepository;
+        protected IBlobContainer<MediaContainer> BlobContainer { get; }
+        protected IMediaDescriptorRepository MediaDescriptorRepository { get; }
 
         public MediaDescriptorManager(IMediaDescriptorRepository mediaDescriptorRepository,
             IBlobContainer<MediaContainer> blobContainer)
         {
-            _mediaDescriptorRepository = mediaDescriptorRepository;
-            _blobContainer = blobContainer;
+            MediaDescriptorRepository = mediaDescriptorRepository;
+            BlobContainer = blobContainer;
         }
 
         /// <summary>
@@ -25,10 +25,10 @@ namespace SuperAbp.Media.MediaDescriptors
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public async Task DeleteAsync(Guid id)
+        public virtual async Task DeleteAsync(Guid id)
         {
-            await _blobContainer.DeleteAsync(id.ToString());
-            await _mediaDescriptorRepository.DeleteAsync(id);
+            await BlobContainer.DeleteAsync(id.ToString());
+            await MediaDescriptorRepository.DeleteAsync(id);
         }
     }
 }
