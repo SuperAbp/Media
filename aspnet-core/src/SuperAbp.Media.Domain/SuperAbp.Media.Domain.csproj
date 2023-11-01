@@ -10,6 +10,7 @@
 	  <Product>SuperAbp.Media</Product>
 	  <PackageProjectUrl>https://superabp.com/</PackageProjectUrl>
 	  <RepositoryUrl>https://github.com/SuperAbp/Media</RepositoryUrl>
+	  <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
