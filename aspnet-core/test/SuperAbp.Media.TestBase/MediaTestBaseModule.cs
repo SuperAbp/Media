@@ -1,4 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using System;
+using System.IO;
 using Volo.Abp;
 using Volo.Abp.Authorization;
 using Volo.Abp.Autofac;
@@ -25,13 +28,18 @@ public class MediaTestBaseModule : AbpModule
 
     public override void ConfigureServices(ServiceConfigurationContext context)
     {
+        var path = Path.Combine(Directory.GetCurrentDirectory(), "super-abp-media");
+        if (!Directory.Exists(path))
+        {
+            Directory.CreateDirectory(path);
+        }
         Configure<AbpBlobStoringOptions>(options =>
         {
             options.Containers.ConfigureDefault(container =>
             {
                 container.UseFileSystem(fileSystem =>
                 {
-                    fileSystem.BasePath = "G:\\my-files";
+                    fileSystem.BasePath = path;
                 });
             });
         });

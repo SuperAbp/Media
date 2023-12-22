@@ -13,7 +13,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Volo.Abp.Http.Client" Version="7.4.0" />
+    <PackageReference Include="Volo.Abp.Http.Client" Version="8.0.0" />
     <ProjectReference Include="..\SuperAbp.Media.Application.Contracts\SuperAbp.Media.Application.Contracts.csproj" />
   </ItemGroup>
 
